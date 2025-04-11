@@ -21,7 +21,16 @@
         public int Id;
         public string Nome;
         public string NomeResponsavel;
-        public string Telefone;        
+        public int Telefone;   
+        
+
+        public ListaClientes(string nome, string nomeResponsavel, int telefone)
+        {
+            //id = idCliente
+            Nome = nome;
+            NomeResponsavel = nomeResponsavel;
+            Telefone = telefone;
+        }
 
     }
 }

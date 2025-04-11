@@ -24,12 +24,12 @@ namespace GestaoDeRevistas.ConsoleApp
     {
         public int Id;
         public string Titulo;
-        public string AnoPublicacao;
+        public int AnoPublicacao;
         public int NumeroEdicao;
         public string CaixaPertencente;
 
         
-        public Revista(string nomeRevista, int numeroEdicao, string anoPublicacaoRevista, string caixaSelecionadaNovaRevista)
+        public Revista(string nomeRevista, int numeroEdicao, int anoPublicacaoRevista, string caixaSelecionadaNovaRevista)
         {
             Titulo = nomeRevista;
             AnoPublicacao = anoPublicacaoRevista;
