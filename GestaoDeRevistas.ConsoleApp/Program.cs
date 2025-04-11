@@ -22,7 +22,7 @@
             Console.WriteLine("3 - Controle de caixas: ");
             Console.WriteLine("4 - Empréstimos e Devoluções: ");
 
-            int opcaoMenuPrincipal = Convert.ToInt32(Console.ReadLine());
+            int opcaoMenuPrincipal = Convert.ToInt32(Console.ReadLine()); 
 
 
             switch (opcaoMenuPrincipal)
