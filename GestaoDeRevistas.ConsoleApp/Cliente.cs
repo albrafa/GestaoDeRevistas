@@ -16,20 +16,21 @@
     // Não pode haver amigos com o mesmo nome e telefone.
     // Não permitir excluir um amigo caso tenha empréstimos vinculados
 
-    public class ListaClientes
+    public class Cliente
     {
         public int Id;
         public string Nome;
         public string NomeResponsavel;
-        public int Telefone;   
-        
+        public int Telefone;
+        public string EmprestimosRealizados;
 
-        public ListaClientes(string nome, string nomeResponsavel, int telefone)
+
+        public Cliente(string nome, string nomeResponsavel, int telefone)
         {
-            //id = idCliente
             Nome = nome;
             NomeResponsavel = nomeResponsavel;
             Telefone = telefone;
+            //EmprestimosRealizados = emprestimosRealizados;
         }
 
     }
