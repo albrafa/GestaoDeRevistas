@@ -11,10 +11,10 @@
         }
 
 
-        public static Guid GerarGuidCliente()
-        {
-            return Guid.NewGuid();
-        }
+        //public static Guid GerarGuidCliente()
+        //{
+        //    return Guid.NewGuid();
+        //}
 
     }
 }
