@@ -1,4 +1,7 @@
-﻿namespace GestaoDeRevistas.ConsoleApp
+﻿using GestaoDeRevistas.ConsoleApp.MóduloCliente;
+using GestaoDeRevistas.ConsoleApp.ModuloRevista;
+
+namespace GestaoDeRevistas.ConsoleApp
 {
     internal class Program
     {

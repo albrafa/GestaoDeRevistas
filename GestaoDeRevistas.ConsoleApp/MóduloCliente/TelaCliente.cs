@@ -1,4 +1,6 @@
-﻿namespace GestaoDeRevistas.ConsoleApp
+﻿using GestaoDeRevistas.ConsoleApp.Compartilhado;
+
+namespace GestaoDeRevistas.ConsoleApp.MóduloCliente
 {
     public class TelaCliente
     {
@@ -18,7 +20,7 @@
             Console.WriteLine("4 - Visualizar cliente: ");  // mostrar os empréstimos realizados pelo cliente                        
             Console.WriteLine();
 
-            string opcaoEscolhida = (Console.ReadLine());
+            string opcaoEscolhida = Console.ReadLine();
 
             return opcaoEscolhida;
         }

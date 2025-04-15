@@ -1,4 +1,4 @@
-﻿namespace GestaoDeRevistas.ConsoleApp
+﻿namespace GestaoDeRevistas.ConsoleApp.MóduloCliente
 {
 
     // O sistema deve permitir a inserção de novos amigos

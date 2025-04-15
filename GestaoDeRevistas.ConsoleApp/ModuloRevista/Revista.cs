@@ -1,6 +1,6 @@
 ﻿using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace GestaoDeRevistas.ConsoleApp
+namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 {
     // O sistema deve permitir cadastrar novas revistas
     // O sistema deve permitir editar revistas existentes

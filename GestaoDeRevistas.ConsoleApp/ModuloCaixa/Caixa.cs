@@ -1,4 +1,4 @@
-﻿namespace GestaoDeRevistas.ConsoleApp
+﻿namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 {
 
     // O sistema deve permitir cadastrar novas caixas

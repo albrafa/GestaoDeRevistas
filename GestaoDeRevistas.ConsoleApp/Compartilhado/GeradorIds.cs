@@ -1,4 +1,4 @@
-﻿namespace GestaoDeRevistas.ConsoleApp
+﻿namespace GestaoDeRevistas.ConsoleApp.Compartilhado
 {
    public class GeradorIds
     {
