@@ -1,4 +1,6 @@
-﻿namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
+﻿using GestaoDeRevistas.ConsoleApp.ModuloRevista;
+
+namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 {
 
     // O sistema deve permitir cadastrar novas caixas
@@ -19,9 +21,17 @@
 
   public  class Caixa
     {
+        public int Id;
         public string Etiqueta;
-        //cor da caixa
-        public DateTime DiasEmprestimo;
+        public string CorCaixa;        
+        public Revista Revista;
 
+
+        public Caixa(string etiqueta, string corCaixa, Revista revista)
+        {
+            Etiqueta = etiqueta;
+            CorCaixa = corCaixa;
+            Revista = revista;
+        }
     }
 }

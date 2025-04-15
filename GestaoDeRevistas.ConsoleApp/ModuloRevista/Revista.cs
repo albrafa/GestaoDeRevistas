@@ -1,4 +1,5 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using GestaoDeRevistas.ConsoleApp.ModuloCaixa;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 {
@@ -26,16 +27,25 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
         public string Titulo;
         public int AnoPublicacao;
         public int NumeroEdicao;
-        public string CaixaPertencente;
+        public Caixa CaixaPertencente;
+        public DateTime DataSaida;
 
-        
-        public Revista(string nomeRevista, int numeroEdicao, int anoPublicacaoRevista, string caixaSelecionadaNovaRevista)
+
+        public Revista(string nomeRevista, int numeroEdicao, int anoPublicacaoRevista, Caixa caixaPertencente)
         {
             Titulo = nomeRevista;
             AnoPublicacao = anoPublicacaoRevista;
             NumeroEdicao = numeroEdicao;
-            CaixaPertencente = caixaSelecionadaNovaRevista;
+            CaixaPertencente = caixaPertencente;
+            DataSaida = DateTime.Today;
 
+        }
+
+        public int TempoEmprestimo()
+        {
+            TimeSpan tempoEmprestimo = DateTime.Now.Subtract(DataSaida);
+
+            return tempoEmprestimo.Days;
         }
 
     }

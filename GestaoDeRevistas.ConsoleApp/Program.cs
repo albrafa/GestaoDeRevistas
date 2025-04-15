@@ -12,21 +12,12 @@ namespace GestaoDeRevistas.ConsoleApp
         static void Main(string[] args)
         {
             TelaCliente telaCliente = new TelaCliente();
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
 
             while (true)
             {
-                Console.WriteLine("----------------");
-                Console.WriteLine("CLUBE DE LEITURA");
-                Console.WriteLine("----------------");
-                Console.WriteLine();
-                Console.WriteLine("Selecione a opção desejada: ");
-                Console.WriteLine("1 - Controle de revistas: ");
-                Console.WriteLine("2 - Controle de clientes: ");
-                Console.WriteLine("3 - Controle de caixas: ");
-                Console.WriteLine("4 - Empréstimos e Devoluções: ");
 
-                int opcaoMenuPrincipal = Convert.ToInt32(Console.ReadLine());
-
+                int opcaoMenuPrincipal = telaPrincipal.ApresentarMenuPrincipal();                
 
                 switch (opcaoMenuPrincipal)
                 {
@@ -68,10 +59,10 @@ namespace GestaoDeRevistas.ConsoleApp
                                         Console.WriteLine();
 
                                         Console.WriteLine("Informe a caixa pertencente: ");
-                                        string caixaSelecionadaNovaRevista = Console.ReadLine();
+                                        string caixaPertencente = Console.ReadLine();
                                         Console.WriteLine();
 
-                                        Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, caixaSelecionadaNovaRevista);
+                                        Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, caixaPertencente);
 
                                         revistas[contadorRevistas++] = novaRevista;
                                         break;
