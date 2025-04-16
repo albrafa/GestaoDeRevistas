@@ -5,9 +5,6 @@ namespace GestaoDeRevistas.ConsoleApp
 {
     internal class Program
     {
-
-
-
         static void Main(string[] args)
         {
             TelaCliente telaCliente = new TelaCliente();
@@ -29,29 +26,21 @@ namespace GestaoDeRevistas.ConsoleApp
                             switch (gestaoRevistas)
                             {
                                 case 1:
-                                    {
-                                        TelaRevista.CadastroRevista(); 
+                                        telaRevista.CadastroRevista(); break;
+                                    
 
-                                        break;
-                                    }
+                                case 2:                                    
+                                        telaRevista.EditarRevista(); break;
+                                    
 
-                                case 2:
-                                    {
-                                        TelaRevista.EditarRevista();
+                                case 3:                                    
+                                        telaRevista.ExcluirRevista(); break;
+                                    
 
-                                        break;
-                                    }
-
-                                case 3:
-                                    {
-                                        TelaRevista.ExcluirRevista();
-                                        break;
-                                    }
-
-                                case 4:
-                                    {
-                                        TelaRevista.VisualizarRevistas(false);
-                                    }
+                                case 4:                                    
+                                        telaRevista.VisualizarRevistas(false); break;                                
+                                                                      
+                                    
                             }
 
                             break;
