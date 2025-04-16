@@ -1,4 +1,5 @@
-﻿using GestaoDeRevistas.ConsoleApp.ModuloCaixa;
+﻿using GestaoDeRevistas.ConsoleApp.Compartilhado;
+using GestaoDeRevistas.ConsoleApp.ModuloCaixa;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
@@ -29,15 +30,17 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
         public int NumeroEdicao;
         public Caixa CaixaPertencente;
         public DateTime DataSaida;
+        public string StatusRevista; //se está disponível para empréstimo ou se já está reservada
 
 
         public Revista(string nomeRevista, int numeroEdicao, int anoPublicacaoRevista, Caixa caixaPertencente)
         {
+            //IdRevista = idRevista;
             Titulo = nomeRevista;
             AnoPublicacao = anoPublicacaoRevista;
             NumeroEdicao = numeroEdicao;
             CaixaPertencente = caixaPertencente;
-            DataSaida = DateTime.Today;
+            DataSaida = DateTime.Today;            
 
         }
 

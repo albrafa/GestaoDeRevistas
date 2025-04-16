@@ -5,14 +5,14 @@ namespace GestaoDeRevistas.ConsoleApp
 {
     internal class Program
     {
-       public static Revista[] revistas = new Revista[100];
-       public  static int contadorRevistas = 0;
+
 
 
         static void Main(string[] args)
         {
             TelaCliente telaCliente = new TelaCliente();
             TelaPrincipal telaPrincipal = new TelaPrincipal();
+            TelaRevista telaRevista = new TelaRevista();
 
             while (true)
             {
@@ -23,49 +23,34 @@ namespace GestaoDeRevistas.ConsoleApp
                 {
                     case 1:
                         {
-                            Console.WriteLine("------------------");
-                            Console.WriteLine("GESTÃO DE REVISTAS");
-                            Console.WriteLine("------------------");
-                            Console.WriteLine();
-                            Console.WriteLine("Escolha uma opção:\n");
-                            Console.WriteLine("1 - Cadastrar uma nova revista: ");
-                            Console.WriteLine("2 - Editar revista: ");
-                            Console.WriteLine("3 - Excluir revista: ");
-                            Console.WriteLine("4 - Visualizar revistas cadastradas: ");
 
-                            int gestaoRevistas = Convert.ToInt32(Console.ReadLine());
+                           int gestaoRevistas = telaRevista.GestaoRevista();                            
 
                             switch (gestaoRevistas)
                             {
                                 case 1:
                                     {
-                                        Console.WriteLine("------------------");
-                                        Console.WriteLine("GESTÃO DE REVISTAS");
-                                        Console.WriteLine("------------------");
-                                        Console.WriteLine("Cadastrando nova revista...");
-                                        Console.WriteLine("---------------------------");
-                                        Console.WriteLine();
+                                        TelaRevista.CadastroRevista(); 
 
-                                        Console.WriteLine("Digite o título da revista: ");
-                                        string nomeRevista = Console.ReadLine();
-                                        Console.WriteLine();
-
-                                        Console.WriteLine("Digite o número da edição da revista: ");
-                                        int numeroEdicao = Convert.ToInt32(Console.ReadLine());
-                                        Console.WriteLine();
-
-                                        Console.WriteLine("Digite o ano de publicação da revista: ");
-                                        int anoPublicacaoRevista = Convert.ToInt32(Console.ReadLine());
-                                        Console.WriteLine();
-
-                                        Console.WriteLine("Informe a caixa pertencente: ");
-                                        string caixaPertencente = Console.ReadLine();
-                                        Console.WriteLine();
-
-                                        Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, caixaPertencente);
-
-                                        revistas[contadorRevistas++] = novaRevista;
                                         break;
+                                    }
+
+                                case 2:
+                                    {
+                                        TelaRevista.EditarRevista();
+
+                                        break;
+                                    }
+
+                                case 3:
+                                    {
+                                        TelaRevista.ExcluirRevista();
+                                        break;
+                                    }
+
+                                case 4:
+                                    {
+                                        TelaRevista.VisualizarRevistas(false);
                                     }
                             }
 
@@ -92,9 +77,8 @@ namespace GestaoDeRevistas.ConsoleApp
                                     telaCliente.ExcluirCliente(); break;
 
                                 case "4":
-                                    {
-                                        telaCliente.VisualizarCliente(true); break;
-                                    }
+                                   
+                                    telaCliente.VisualizarCliente(true); break;                                    
 
                                 default:
                                     Console.WriteLine("Saindo do programa...");

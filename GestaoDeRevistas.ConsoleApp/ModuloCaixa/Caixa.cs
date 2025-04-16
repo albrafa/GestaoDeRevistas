@@ -19,7 +19,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 
 
 
-  public  class Caixa
+  public class Caixa
     {
         public int Id;
         public string Etiqueta;

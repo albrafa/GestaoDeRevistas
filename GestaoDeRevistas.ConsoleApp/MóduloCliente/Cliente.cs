@@ -23,6 +23,7 @@
         public string NomeResponsavel;
         public int Telefone;
         public string EmprestimosRealizados;
+        public string SituacaoCliente; //se o cliente está regular ou irregular (blacklisted)
 
 
         public Cliente(string nome, string nomeResponsavel, int telefone)
