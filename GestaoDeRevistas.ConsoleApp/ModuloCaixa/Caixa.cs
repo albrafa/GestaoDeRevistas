@@ -21,7 +21,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 
   public class Caixa
     {
-        public int Id;
+        public int IdCaixa;
         public string Etiqueta;
         public string CorCaixa;        
         //public Revista Revista;

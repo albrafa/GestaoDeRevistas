@@ -53,7 +53,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 
             Caixa novaCaixa = new Caixa(etiqueta, corCaixa, emprestimoCaixa);
 
-            novaCaixa.Id = GeradorIds.GerarIdCliente();
+            novaCaixa.IdCaixa = GeradorIds.GerarIdCliente();
 
             listaCaixa[contadorCaixa++] = novaCaixa;
 
@@ -94,7 +94,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             {
                 if (listaCaixa[i] == null) continue;
 
-                else if (listaCaixa[i].IdCaixa = idSelecionado)
+                else if (listaCaixa[i].IdCaixa == idSelecionado)
                 {
                     listaCaixa[i].Etiqueta = novaCaixa.Etiqueta;
                     listaCaixa[i].CorCaixa = novaCaixa.CorCaixa;
@@ -137,7 +137,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             {
                 if (listaCaixa[i].IdCaixa == null) continue;
 
-                else if (listaCaixa[i].IdCaixa = idSelecionado)
+                else if (listaCaixa[i].IdCaixa == idSelecionado)
                 {
                     listaCaixa[i] = null;
 
@@ -181,7 +181,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
                 if (caixaSelecionada == null) continue;
 
                 Console.WriteLine("{0, -10} | {1, -12} | {2, -10} | {3, -10}" +
-                caixaSelecionada.Id, caixaSelecionada.Etiqueta, caixaSelecionada.CorCaixa, caixaSelecionada.EmprestimoCaixa);
+                caixaSelecionada.IdCaixa, caixaSelecionada.Etiqueta, caixaSelecionada.CorCaixa, caixaSelecionada.EmprestimoCaixa);
 
             }
         }

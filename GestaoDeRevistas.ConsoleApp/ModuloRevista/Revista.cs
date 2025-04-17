@@ -24,7 +24,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 
    public class Revista
     {
-        public int Id;
+        public int IdRevista;
         public string Titulo;
         public int AnoPublicacao;
         public int NumeroEdicao;

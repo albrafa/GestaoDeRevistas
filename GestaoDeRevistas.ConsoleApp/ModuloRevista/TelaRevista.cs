@@ -1,4 +1,5 @@
 ﻿using GestaoDeRevistas.ConsoleApp.Compartilhado;
+using GestaoDeRevistas.ConsoleApp.ModuloCaixa;
 
 namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 {
@@ -24,7 +25,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             return gestaoRevistas;
         }
 
-        public string CadastroRevista()
+        public void CadastroRevista()
         {
             Console.WriteLine("------------------");
             Console.WriteLine("GESTÃO DE REVISTAS");
@@ -49,11 +50,10 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             string caixaPertencente = Console.ReadLine();
             Console.WriteLine();
 
-            Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, caixaPertencente);
+            Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, null);
 
             revistas[contadorRevistas++] = novaRevista;
-
-            return novaRevista;
+            
         }
 
         public void EditarRevista()
@@ -69,7 +69,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             VisualizarRevistas(false);
 
            Console.Write("Digite o ID da revista que deseja editar: ");
-            string idRevista = Console.ReadLine();
+            int idRevista = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Digite o título da revista: ");
             string nomeRevista = Console.ReadLine();
@@ -87,7 +87,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             string caixaPertencente = Console.ReadLine();
             Console.WriteLine();
 
-            Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, caixaPertencente);
+            Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, null);
 
             bool conseguiuEditar = false;
 
@@ -133,11 +133,11 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 
             for (int i = 0; i < revistas.Length; i++)
             {
-                if (revistas[i].IdRevista == null) continue;
+                if (revistas[i] == null) continue;
 
-                else if (revistas[i].IdRevista = idSelecionado)
+                else if (revistas[i].IdRevista == idSelecionado)
                 {
-                    revistas[i] == null;
+                    revistas[i] = null;
 
                     conseguiuExcluir = true;
                 }
