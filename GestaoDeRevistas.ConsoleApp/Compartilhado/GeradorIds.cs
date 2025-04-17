@@ -4,6 +4,7 @@
     {
         public static int IdClientes = 0;
         public static int IdRevista = 0;
+        public static int IdCaixa = 0;
 
         public static int GerarIdCliente()
         {
@@ -15,6 +16,12 @@
         {
             IdRevista++;
             return IdRevista;
+        }
+
+        public static int GerarIdCaixa()
+        {
+            IdCaixa++;
+            return IdCaixa;
         }
 
 

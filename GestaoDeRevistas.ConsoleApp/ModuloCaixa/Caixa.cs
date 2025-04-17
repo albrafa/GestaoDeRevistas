@@ -24,14 +24,16 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
         public int Id;
         public string Etiqueta;
         public string CorCaixa;        
-        public Revista Revista;
+        //public Revista Revista;
+        public string EmprestimoCaixa;
 
 
-        public Caixa(string etiqueta, string corCaixa, Revista revista)
+        public Caixa(string etiqueta, string corCaixa, string emprestimoCaixa)
         {
             Etiqueta = etiqueta;
             CorCaixa = corCaixa;
-            Revista = revista;
+            //Revista = revista;
+            EmprestimoCaixa = emprestimoCaixa;
         }
     }
 }

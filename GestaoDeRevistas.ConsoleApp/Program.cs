@@ -1,4 +1,5 @@
-﻿using GestaoDeRevistas.ConsoleApp.MóduloCliente;
+﻿using GestaoDeRevistas.ConsoleApp.ModuloCaixa;
+using GestaoDeRevistas.ConsoleApp.MóduloCliente;
 using GestaoDeRevistas.ConsoleApp.ModuloRevista;
 
 namespace GestaoDeRevistas.ConsoleApp
@@ -10,6 +11,7 @@ namespace GestaoDeRevistas.ConsoleApp
             TelaCliente telaCliente = new TelaCliente();
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             TelaRevista telaRevista = new TelaRevista();
+            TelaCaixa telaCaixa = new TelaCaixa();
 
             while (true)
             {
@@ -72,6 +74,27 @@ namespace GestaoDeRevistas.ConsoleApp
                                 default:
                                     Console.WriteLine("Saindo do programa...");
                                     break;
+                            }
+
+                            break;
+                        }
+
+                    case 3:
+                        {
+                            string gestaoCaixa = telaCaixa.ApresentarMenu();
+
+                            switch (gestaoCaixa)
+                            {
+                                case "1":
+                                    telaCaixa.CadastrarCaixa(); break;
+
+                                case "2":
+                                    telaCaixa.EditarCaixa(); break;
+
+                                case "3":
+                                    telaCaixa.ExcluirCaixa(); break;
+                                case "4":
+                                    telaCaixa.VisualizarCaixas(true); break;
                             }
 
                             break;
