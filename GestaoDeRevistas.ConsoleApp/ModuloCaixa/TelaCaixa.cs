@@ -4,10 +4,26 @@ using GestaoDeRevistas.ConsoleApp.MóduloCliente;
 
 namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 {
+    
     class TelaCaixa
     {
         public static Caixa[] listaCaixa = new Caixa[100];
         public static int contadorCaixa = 0;
+
+
+        public static Caixa[] caixaVermelha = new Caixa[100]; //Super Heróis
+        public static int contadorCaixaVermelha = 0;
+
+        public static Caixa[] caixaAmarela = new Caixa[100]; //Nacionais
+        public static int contadorCaixaAmarela = 0;
+
+        public static Caixa[] caixaAzul = new Caixa[100]; //Super Heróis - raridades
+        public static int contadorCaixaAzul = 0;
+
+        public static Caixa[] caixaRosa = new Caixa[100]; //Nacionais - raridades
+        public static int contadorRosa = 0;
+
+
         public string ApresentarMenu()
         {
             Console.Clear();
@@ -41,11 +57,11 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             Console.WriteLine();
 
             Console.Write("Insira o texto que deverá ser escrito na etiqueta da caixa: ");
-            string etiqueta = Console.ReadLine();
+            string etiqueta = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Escolha a cor da caixa: ");
-            string corCaixa = Console.ReadLine();
+            string corCaixa = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Informe o número de dias que essa caixa será emprestada (padrão: 7 dias): ");
@@ -53,7 +69,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 
             Caixa novaCaixa = new Caixa(etiqueta, corCaixa, emprestimoCaixa);
 
-            novaCaixa.IdCaixa = GeradorIds.GerarIdCliente();
+            novaCaixa.IdCaixa = GeradorIds.GerarIdCaixa();
 
             listaCaixa[contadorCaixa++] = novaCaixa;
 
@@ -76,15 +92,15 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Digite o novo texto da etiqueta: ");
-            string etiqueta = Console.ReadLine();
+            string etiqueta = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Escolha a nova cor da caixa: ");
-            string corCaixa = Console.ReadLine();
+            string corCaixa = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Informe o número de dias que essa caixa será emprestada (padrão: 7 dias): ");
-            string emprestimoCaixa = (Console.ReadLine());
+            string emprestimoCaixa = (Console.ReadLine()).Trim();
 
             Caixa novaCaixa = new Caixa(etiqueta, corCaixa, emprestimoCaixa);
 
@@ -184,6 +200,13 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
                 caixaSelecionada.IdCaixa, caixaSelecionada.Etiqueta, caixaSelecionada.CorCaixa, caixaSelecionada.EmprestimoCaixa);
 
             }
+        }
+
+        public void VisualizarRevistas()
+
+
+        {
+
         }
 
     }

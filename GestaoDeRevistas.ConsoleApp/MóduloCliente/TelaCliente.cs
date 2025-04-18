@@ -37,11 +37,11 @@ namespace GestaoDeRevistas.ConsoleApp.MóduloCliente
             Console.WriteLine("----------------------");
             Console.WriteLine();
             Console.Write("Digite o nome do cliente (mínimo 3 caracteres): ");
-            string nome = Console.ReadLine();
+            string nome = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Digite o nome do responsável (mínimo 3 carcteres): ");
-            string nomeResponsavel = Console.ReadLine();
+            string nomeResponsavel = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Telefone para contato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX): ");
@@ -72,11 +72,11 @@ namespace GestaoDeRevistas.ConsoleApp.MóduloCliente
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Digite o nome do cliente (mínimo 3 caracteres): ");
-            string nome = Console.ReadLine();
+            string nome = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Digite o nome do responsável (mínimo 3 carcteres): ");
-            string nomeResponsavel = Console.ReadLine();
+            string nomeResponsavel = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.Write("Telefone para contato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX): ");

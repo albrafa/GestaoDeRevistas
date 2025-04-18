@@ -35,7 +35,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             Console.WriteLine();
 
             Console.WriteLine("Digite o título da revista: ");
-            string nomeRevista = Console.ReadLine();
+            string nomeRevista = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.WriteLine("Digite o número da edição da revista: ");
@@ -47,7 +47,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             Console.WriteLine();
 
             Console.WriteLine("Informe a caixa pertencente: ");
-            string caixaPertencente = Console.ReadLine();
+            string caixaPertencente = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, null);
@@ -72,7 +72,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             int idRevista = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Digite o título da revista: ");
-            string nomeRevista = Console.ReadLine();
+            string nomeRevista = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Console.WriteLine("Digite o número da edição da revista: ");
@@ -84,7 +84,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             Console.WriteLine();
 
             Console.WriteLine("Informe a caixa pertencente: ");
-            string caixaPertencente = Console.ReadLine();
+            string caixaPertencente = Console.ReadLine().Trim();
             Console.WriteLine();
 
             Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, null);
