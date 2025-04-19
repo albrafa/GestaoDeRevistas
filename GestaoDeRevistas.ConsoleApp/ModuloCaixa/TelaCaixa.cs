@@ -1,28 +1,34 @@
 ﻿
 using GestaoDeRevistas.ConsoleApp.Compartilhado;
 using GestaoDeRevistas.ConsoleApp.MóduloCliente;
+using GestaoDeRevistas.ConsoleApp.ModuloRevista;
 
 namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 {
-    
-    class TelaCaixa
+    public class TelaCaixa
     {
         public static Caixa[] listaCaixa = new Caixa[100];
         public static int contadorCaixa = 0;
 
 
-        public static Caixa[] caixaVermelha = new Caixa[100]; //Super Heróis
-        public static int contadorCaixaVermelha = 0;
+        //public static Caixa[] caixaVermelha = new Caixa[100]; //Super Heróis
+        //public static int contadorCaixaVermelha = 0;
 
-        public static Caixa[] caixaAmarela = new Caixa[100]; //Nacionais
-        public static int contadorCaixaAmarela = 0;
+        //public static Caixa[] caixaAmarela = new Caixa[100]; //Nacionais
+        //public static int contadorCaixaAmarela = 0;
 
-        public static Caixa[] caixaAzul = new Caixa[100]; //Super Heróis - raridades
-        public static int contadorCaixaAzul = 0;
+        //public static Caixa[] caixaAzul = new Caixa[100]; //Super Heróis - raridades
+        //public static int contadorCaixaAzul = 0;
 
-        public static Caixa[] caixaRosa = new Caixa[100]; //Nacionais - raridades
-        public static int contadorRosa = 0;
+        //public static Caixa[] caixaRosa = new Caixa[100]; //Nacionais - raridades
+        //public static int contadorRosa = 0;
 
+        public TelaCaixa(TelaRevista telaRevista)
+        {
+            TelaRevista = telaRevista;
+        }
+
+        public TelaRevista TelaRevista { get; }
 
         public string ApresentarMenu()
         {
@@ -72,6 +78,8 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             novaCaixa.IdCaixa = GeradorIds.GerarIdCaixa();
 
             listaCaixa[contadorCaixa++] = novaCaixa;
+
+            Revista revista;
 
         }
 
@@ -204,8 +212,20 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
 
         public void VisualizarRevistas()
 
-
         {
+            Console.WriteLine("{0, -10} | {1, -15} | {2, -8} | {3, -8} | {4, -10} | {5, -8}" +
+                              "Id", "Título", "Número Edição", "Ano de Publicação", "Caixa", "Status");
+
+            for (int i = 0; i < TelaRevista.revistas.Length; i++)
+            {
+                Revista revistaSelecionada = TelaRevista.revistas[i];
+
+                if (revistaSelecionada == null) continue;
+
+                Console.WriteLine("{0, -10} | {1, -15} | {2, -8} | {3, -8} | {4, -10} | {5, -8}" +
+                "0", revistaSelecionada.Titulo, revistaSelecionada.NumeroEdicao, revistaSelecionada.AnoPublicacao, revistaSelecionada.CaixaPertencente, "Status");
+
+            }
 
         }
 

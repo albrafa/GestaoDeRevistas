@@ -5,8 +5,12 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 {
     public class TelaRevista
     {
-        public static Revista[] revistas = new Revista[100];
-        public static int contadorRevistas = 0;
+
+        public RepositorioRevista repositorioRevista;
+        public TelaRevista()
+        {
+            repositorioRevista = new RepositorioRevista();
+        }
 
         public int GestaoRevista()
         {
@@ -52,8 +56,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 
             Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, null);
 
-            revistas[contadorRevistas++] = novaRevista;
-            
+            repositorioRevista.CadastrarRevista(novaRevista);            
         }
 
         public void EditarRevista()
@@ -89,21 +92,7 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
 
             Revista novaRevista = new Revista(nomeRevista, numeroEdicao, anoPublicacaoRevista, null);
 
-            bool conseguiuEditar = false;
-
-            for (int i = 0; i < revistas.Length; i++)
-            {
-                if (revistas[i] == null) continue;
-
-                else if (revistas[i].IdRevista == idRevista)
-                {
-                    revistas[i].Titulo = novaRevista.Titulo;
-                    revistas[i].NumeroEdicao = novaRevista.NumeroEdicao;
-                    revistas[i].AnoPublicacao = novaRevista.AnoPublicacao;
-                    revistas[i].CaixaPertencente = novaRevista.CaixaPertencente;
-
-                    conseguiuEditar = true;
-                }
+            bool conseguiuEditar = repositorioRevista.EditarRevista(idRevista, novaRevista);
 
                 if (!conseguiuEditar)
                 {
@@ -111,9 +100,8 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
                 }
 
                 Console.WriteLine("A revista foi editada com sucesso.");
-            }
-
         }
+        
 
         public void ExcluirRevista()
         {
@@ -129,27 +117,16 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             Console.Write("Digite o ID da revista que deseja excluir: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
-            bool conseguiuExcluir = false;
+            bool conseguiuExcluir = repositorioRevista.ExcluirRevista(idSelecionado);
 
-            for (int i = 0; i < revistas.Length; i++)
+            if (!conseguiuExcluir)
             {
-                if (revistas[i] == null) continue;
-
-                else if (revistas[i].IdRevista == idSelecionado)
-                {
-                    revistas[i] = null;
-
-                    conseguiuExcluir = true;
-                }
-
-                if (!conseguiuExcluir)
-                {
-                    Console.WriteLine("Ocorreu um erro durante a exclusão da revista no sistema...");
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("A revista foi devidamente excluída do sistema.");
+                Console.WriteLine("Ocorreu um erro durante a exclusão da revista no sistema...");
             }
+
+            Console.WriteLine();
+            Console.WriteLine("A revista foi devidamente excluída do sistema.");      
+            
         }
 
         public void VisualizarRevistas(bool exibirTitulo)
@@ -168,9 +145,11 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             Console.WriteLine("{0, -10} | {1, -15} | {2, -8} | {3, -8} | {4, -10} | {5, -8}"+
                               "Id", "Título", "Número Edição", "Ano de Publicação", "Caixa", "Status");
 
-            for (int i = 0; i < revistas.Length; i++)
+            Revista[] revistasCadastradas = repositorioRevista.SelecionarRevista();
+
+            for (int i = 0; i < revistasCadastradas.Length; i++)
             {
-                Revista revistaSelecionada = revistas[i];
+                Revista revistaSelecionada = revistasCadastradas[i];
 
                 if (revistaSelecionada == null) continue;
 

@@ -11,7 +11,7 @@ namespace GestaoDeRevistas.ConsoleApp
             TelaCliente telaCliente = new TelaCliente();
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             TelaRevista telaRevista = new TelaRevista();
-            TelaCaixa telaCaixa = new TelaCaixa();
+            TelaCaixa telaCaixa = new TelaCaixa(telaRevista);
 
             while (true)
             {
