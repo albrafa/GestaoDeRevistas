@@ -2,34 +2,22 @@
 using GestaoDeRevistas.ConsoleApp.Compartilhado;
 using GestaoDeRevistas.ConsoleApp.ModuloRevista;
 
-namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
+namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa;
 
     public class TelaCaixa
     {
 
         public RepositorioRevista repositorioRevista;
+        public RepositorioCaixa repositorioCaixa;
 
-        public TelaCaixa(RepositorioRevista repositorioRevista)
-        {
-            this.repositorioRevista = repositorioRevista;
+    public TelaCaixa(RepositorioRevista repositorioRevista, RepositorioCaixa repositorioCaixa)
+    {
+        this.repositorioRevista = repositorioRevista;
+        this.repositorioCaixa = new RepositorioCaixa();
+    }
 
-        }            
-    
         public static Caixa[] listaCaixa = new Caixa[100];
         public static int contadorCaixa = 0;
-
-
-        //public static Caixa[] caixaVermelha = new Caixa[100]; //Super Heróis
-        //public static int contadorCaixaVermelha = 0;
-
-        //public static Caixa[] caixaAmarela = new Caixa[100]; //Nacionais
-        //public static int contadorCaixaAmarela = 0;
-
-        //public static Caixa[] caixaAzul = new Caixa[100]; //Super Heróis - raridades
-        //public static int contadorCaixaAzul = 0;
-
-        //public static Caixa[] caixaRosa = new Caixa[100]; //Nacionais - raridades
-        //public static int contadorRosa = 0;
 
         public TelaCaixa(TelaRevista telaRevista)
         {
@@ -59,44 +47,26 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
         }
 
         public void CadastrarCaixa()
-        {
-            Console.Clear();
-            Console.WriteLine("----------------------");
-            Console.WriteLine("CLUBE DE LEITURA");
-            Console.WriteLine("----------------------");
-            Console.WriteLine();
+    {
+        Console.Clear();
+        Console.WriteLine("----------------------");
+        Console.WriteLine("CLUBE DE LEITURA");
+        Console.WriteLine("----------------------");
+        Console.WriteLine();
 
-            Console.WriteLine("Cadastrando caixa...");
-            Console.WriteLine("----------------------");
-            Console.WriteLine();
+        Console.WriteLine("Cadastrando caixa...");
+        Console.WriteLine("----------------------");
+        Console.WriteLine();
 
-            Console.Write("Insira o texto que deverá ser escrito na etiqueta da caixa: ");
-            string etiqueta = Console.ReadLine().Trim();
-            Console.WriteLine();
+       Caixa novaCaixa = ObterDadosChamado();
 
-            Console.Write("Escolha a cor da caixa: ");
-            string corCaixa = Console.ReadLine().Trim();
-            Console.WriteLine();
+        repositorioCaixa.CadastrarCaixa(novaCaixa);
 
-            Console.Write("Informe o número de dias que essa caixa será emprestada (padrão: 7 dias): ");
-            string emprestimoCaixa = (Console.ReadLine());
+        Console.WriteLine();
+        Console.WriteLine("A caixa foi cadastrada com sucesso.");
+    }    
 
-            VisualizarRevistas();
-
-            Console.Write("Digite o ID da revista que deseja selecionar: ");
-            int idRevista = Convert.ToInt32(Console.ReadLine());
-
-            Revista revistaSelecionada = repositorioRevista.SelecionarRevistaPorId(idRevista);
-
-            Caixa novaCaixa = new Caixa(etiqueta, corCaixa, emprestimoCaixa);
-
-            novaCaixa.IdCaixa = GeradorIds.GerarIdCaixa();
-
-            listaCaixa[contadorCaixa++] = novaCaixa;
-
-    }
-
-        public void EditarCaixa()
+    public void EditarCaixa()
         {
             Console.Clear();
             Console.WriteLine("----------------------");
@@ -109,6 +79,8 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             Console.WriteLine();
 
             VisualizarCaixas(false);
+            
+            Console.Write("Digite o ID da caixa que deseja editar: ");
 
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
@@ -243,5 +215,34 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             }
 
         }
+
+    public Caixa ObterDadosChamado()
+    {
+        Console.Write("Insira o texto que deverá ser escrito na etiqueta da caixa: ");
+        string etiqueta = Console.ReadLine().Trim();
+        Console.WriteLine();
+
+        Console.Write("Escolha a cor da caixa: ");
+        string corCaixa = Console.ReadLine().Trim();
+        Console.WriteLine();
+
+        Console.Write("Informe o número de dias que essa caixa será emprestada (padrão: 7 dias): ");
+        string emprestimoCaixa = (Console.ReadLine());
+
+        VisualizarRevistas();
+
+        Console.Write("Digite o ID da revista que deseja selecionar: ");
+        int idRevista = Convert.ToInt32(Console.ReadLine());
+
+        Revista revistaSelecionada = repositorioRevista.SelecionarRevistaPorId(idRevista);
+
+        Caixa novaCaixa = new Caixa(etiqueta, corCaixa, emprestimoCaixa);
+
+        novaCaixa.IdCaixa = GeradorIds.GerarIdCaixa();
+
+        listaCaixa[contadorCaixa++] = novaCaixa;
+
+        return novaCaixa;
     }
+}
 }

@@ -23,12 +23,5 @@
             IdCaixa++;
             return IdCaixa;
         }
-
-
-        //public static Guid GerarGuidCliente()
-        //{
-        //    return Guid.NewGuid();
-        //}
-
     }
 }
