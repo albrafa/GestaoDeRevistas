@@ -9,9 +9,13 @@ namespace GestaoDeRevistas.ConsoleApp
         static void Main(string[] args)
         {
             TelaCliente telaCliente = new TelaCliente();
+
             TelaPrincipal telaPrincipal = new TelaPrincipal();
+
             TelaRevista telaRevista = new TelaRevista();
-            TelaCaixa telaCaixa = new TelaCaixa(telaRevista);
+            RepositorioRevista repositorioRevista = telaRevista.repositorioRevista;
+
+            TelaCaixa telaCaixa = new TelaCaixa(repositorioRevista);
 
             while (true)
             {

@@ -53,9 +53,24 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloRevista
             return false;
         }
 
-        internal Revista[] SelecionarRevista()
+        public Revista[] SelecionarRevista()
         {
             return revistas;
+        }
+
+        public Revista SelecionarRevistaPorId(int idRevista)
+        {
+            for (int i = 0; i < revistas.Length; i++)
+            {
+                Revista revista = revistas[i];
+
+                if (revista == null) continue;
+
+                else if (revista.IdRevista == idRevista)
+                    return revista;
+            }
+
+            return null;
         }
     }
 }

@@ -1,12 +1,20 @@
 ﻿
 using GestaoDeRevistas.ConsoleApp.Compartilhado;
-using GestaoDeRevistas.ConsoleApp.MóduloCliente;
 using GestaoDeRevistas.ConsoleApp.ModuloRevista;
 
 namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
-{
+
     public class TelaCaixa
     {
+
+        public RepositorioRevista repositorioRevista;
+
+        public TelaCaixa(RepositorioRevista repositorioRevista)
+        {
+            this.repositorioRevista = repositorioRevista;
+
+        }            
+    
         public static Caixa[] listaCaixa = new Caixa[100];
         public static int contadorCaixa = 0;
 
@@ -73,15 +81,20 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             Console.Write("Informe o número de dias que essa caixa será emprestada (padrão: 7 dias): ");
             string emprestimoCaixa = (Console.ReadLine());
 
+            VisualizarRevistas();
+
+            Console.Write("Digite o ID da revista que deseja selecionar: ");
+            int idRevista = Convert.ToInt32(Console.ReadLine());
+
+            Revista revistaSelecionada = repositorioRevista.SelecionarRevistaPorId(idRevista);
+
             Caixa novaCaixa = new Caixa(etiqueta, corCaixa, emprestimoCaixa);
 
             novaCaixa.IdCaixa = GeradorIds.GerarIdCaixa();
 
             listaCaixa[contadorCaixa++] = novaCaixa;
 
-            Revista revista;
-
-        }
+    }
 
         public void EditarCaixa()
         {
@@ -216,9 +229,11 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             Console.WriteLine("{0, -10} | {1, -15} | {2, -8} | {3, -8} | {4, -10} | {5, -8}" +
                               "Id", "Título", "Número Edição", "Ano de Publicação", "Caixa", "Status");
 
-            for (int i = 0; i < TelaRevista.revistas.Length; i++)
+        Revista[] revistasCadastradas = repositorioRevista.SelecionarRevista();
+
+            for (int i = 0; i < revistasCadastradas.Length; i++)
             {
-                Revista revistaSelecionada = TelaRevista.revistas[i];
+                Revista revistaSelecionada = revistasCadastradas[i];
 
                 if (revistaSelecionada == null) continue;
 
@@ -228,6 +243,5 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa
             }
 
         }
-
     }
 }
