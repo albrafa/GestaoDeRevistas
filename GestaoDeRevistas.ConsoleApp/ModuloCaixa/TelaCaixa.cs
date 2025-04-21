@@ -24,7 +24,12 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa;
             TelaRevista = telaRevista;
         }
 
-        public TelaRevista TelaRevista { get; }
+    public TelaCaixa(RepositorioRevista repositorioRevista)
+    {
+        this.repositorioRevista = repositorioRevista;
+    }
+
+    public TelaRevista TelaRevista { get; }
 
         public string ApresentarMenu()
         {
@@ -244,5 +249,4 @@ namespace GestaoDeRevistas.ConsoleApp.ModuloCaixa;
 
         return novaCaixa;
     }
-}
 }
